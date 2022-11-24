@@ -87,6 +87,66 @@ li {
 .main {
     grid-area: main;
     border: solid 2px white;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "card-container main-sidebar"
+    ;
+    gap: 10px;
+}
 
+.main-sidebar {
+    grid-area: main-sidebar;
+    display: grid;
+    grid-template-rows: 5% 1fr 5% 1fr;
+    gap: 10px;
+    /* margin: 10px; */
+}
+
+.announcements-header {
+    color: white;
+}
+
+.trending-header {
+    color: white;
+
+}
+
+.card-container {
+    grid-area: card-container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1, 5%) repeat(3, 1fr);
+    grid-template-areas: 
+        "card-container-header card-container-header"
+        "main-card main-card"
+        "main-card main-card"
+        "main-card main-card"
+    ;
+    gap: 10px;
+    /* margin: 10px; */
+}
+
+.card-container-header {
+    grid-area: card-container-header;
+    color: whitesmoke;
+}
+
+.card {
+    grid-area: main-card;
+    background-color: whitesmoke;
+
+    width: 50%;
+    height: 150px;
+}
+
+.main-card, .sidebar-card {
+    background-color: whitesmoke;
+    border: solid 2px rebeccapurple;
+}
+
+.sidebar-card {
+    background-color: whitesmoke;
 }
 
