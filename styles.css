@@ -5,10 +5,11 @@
 }
 
 body, html {
-    background-color: midnightblue;
+    background-color: mintcream;
     /* line-height: 1.2em; */
     font-family: 'Roboto', sans-serif;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -27,29 +28,30 @@ body, html {
     height: 100%;
 }
 
+/* ---HEADER--- */
 .header {
     grid-area: header;
-    /* border: solid 2px white; */
+    /* border: solid 2px red; */
     background-color: mintcream;
-    box-shadow: 0px 2px 10px 0px mintcream;
+    box-shadow: 0px 2px 10px 4px mintcream;
 
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr 1fr; */
     grid-template-areas: 
         "search search user"
         "intro intro nav-header"
     ;
+    gap: 10px;
     padding: 10px;
     align-items: center;
 }
 
+
+/* ---SEARCH--- */
 .search {
     grid-area: search;
     grid-column: 1 / 3;
-    /* display: grid; */
-    /* justify-items: center;
-    align-items: center; */
     min-width: 210px;
 }
 
@@ -62,19 +64,24 @@ body, html {
     gap: 1rem;
     border: none;
     justify-items: center;
-    /* align-items: center; */
 }
 
 .search  input {
-    /* display: flex;
-    flex: 1; */
     grid-area: input;
     width: 100%;
     min-width: 1fr;
     outline: none;
     border-radius: 10px;
     padding-left: .5em;
-    /* text-align: start; */
+}
+
+.search input[type="search"] {
+    background-color: cornflowerblue;
+    color: mintcream;
+}
+
+.search input[type="search"]::placeholder {
+    color: mintcream;
 }
 
 .search  img {
@@ -83,37 +90,46 @@ body, html {
     height: 1.2rem;
 }
 
+/* ---USER--- */
 .user {
     grid-area: user;
     display: grid;
-    grid-template-columns: .5fr .5fr 1fr;
-    /* gap: 1rem; */
-    justify-self: center;
-    align-items: center;
-    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: 1fr 2em 2em 8em;
+    gap: 1rem;
+    grid-template-areas: 
+        ". notification-icon user-avatar username"
+    ;
+    align-items: center;   
 }
 
 .user .user-avatar {
+    grid-area: user-avatar;
     width: 2em;
     height: 2em;
 }
 
 .user .notification-icon {
+    grid-area: notification-icon;
     width: 1.2em;
     height: 1.2em;
 }
 
 .user-avatar {
-    width: 75px;
-    height: 75px;
+    width: 4rem;
+    height: 4rem;
 }
 
+.user p {
+    grid-area: username;
+    justify-content: end;
+}
+
+/* ---NAV--- */
 .nav-header {
     grid-area: nav-header;
     display: grid;
     justify-content: end;
     align-content: center;
-
 }
 
 .nav-header ul {
@@ -123,7 +139,7 @@ body, html {
 
 .nav-header li {
     list-style: none;
-    color: whitesmoke;
+    color: mintcream;
     background-color: midnightblue;
     border-radius: 10px;
     text-align: center;
@@ -131,12 +147,12 @@ body, html {
     margin: 15px;
 }
 
+/* ---INTRO--- */
 .intro {
     grid-area: intro;
     display: grid;
-    grid-template-columns: 5rem 1fr;
+    grid-template-columns: 4rem 1fr;
     gap: 1em;
-    /* justify-content: left; */
     align-items: center;
     font-size: .7em;
 }
@@ -146,24 +162,18 @@ body, html {
     font-weight: 700;
 }
 
+/* ---SIDEBAR--- */
+
 .sidebar {
     grid-area: sidebar;
-    /* border: solid 2px white; */
     background-color: midnightblue;
-    color: white;
-    /* background-image: linear-gradient(to top, hotpink, mintcream); */
-    box-shadow: 2px 0px 10px 0px mintcream;
+    color: mintcream;
     display: grid;
     grid-template-rows: 100px 200px 100px;
     gap: 2em;
     justify-content: center;
     height: 100%;
 }
-
-/* svg.sidebar-icon path {
-    fill: white;
-} */
-
 
 .logo {
     display: grid;
@@ -181,13 +191,12 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
 }
 
 .sidebar li {
     display: grid;
     grid-template-columns: min-content max-content;
-    gap: .2em;
+    gap: .5em;
     align-items: center;
     list-style: none;
 }
@@ -196,117 +205,91 @@ body, html {
     width: 1em;
 }
 
+/* ---MAIN--- */
 .main-container {
+    background-color: cornflowerblue;
     grid-area: main;
-    /* border: solid 2px white; */
     display: grid;
     grid-template-columns: 2fr 25%;
     grid-template-rows: 1fr;
     grid-template-areas: 
         "card-container main-sidebar"
     ;
-    gap: 10px;
-    /* justify-content: center; */
-    /* align-content: center; */
-    padding: 10px;
-    overflow: auto;
+    gap: 20px;
+    padding: 20px;
     font-size: small;
-
 }
 
-
+/* ---CARD CONTAINER--- */
 .card-container {
     grid-area: card-container;
     display: grid;
-    /* grid-template-rows: repeat(1, 2%) repeat(3, 1fr);
-    grid-template-columns: 1fr 1fr; */
-    grid-template: repeat(1, 2em) repeat(3, 150px)/ repeat(2, minmax(210px, 1fr));
-    /* grid-template-areas: 
-        "card-container-header card-container-header"
-        "main-card main-card"
-        "main-card main-card"
-        "main-card main-card"
-    ; */
+    grid-template: repeat(1, 2em) repeat(3, 180px)/ repeat(2, minmax(210px, 1fr));
     gap: 10px;
-    /* margin: 10px; */
-    padding: 10px;
-    /* width: min(450px, 100vw); */
+    padding: 0px;
     min-width: 450px;
-    
 }
 
 .card-container-header {
-    /* grid-area: card-container-header; */
     grid-column: 1 / 3;
     width: 100%;
-    color: whitesmoke;
+    color: mintcream;
 }
 
+/* ---CARDS--- */
 .main-card {
-    /* grid-area: main-card; */
     display: grid;
-    align-items: center;
-    background-color: whitesmoke;
+    background-color: mintcream;
     border-radius: 10px;
     border-left: solid hotpink 10px;
-    box-shadow: 2px 2px 10px 0px mintcream;
-    /* /* grid-template-rows: 1.5rem 5rem 1rem; */
     grid-template-areas: 
         "card-header"
         "card-text"
         "card-footer"
     ; 
-    /* width: 250px;
-    height: auto; */
     padding: 10px;
+    align-content: space-between;
 }
 
 .card-header {
     grid-area: card-header;
     font-size: 1.2em;
     font-weight: 600;
-    /* text-align: left; */
-    line-height: 0px;
-    /* border: solid 2px red; */
-
+    padding-top: 1em;
 }
 
 .card-text {
     grid-area: card-text;
-    /* border: solid 2px red; */
-    overflow: auto;
-
 }
 
 .card-footer {
     grid-area: card-footer;
     display: grid;
-    grid-template-columns:1fr 1fr 1fr;
-    justify-items: end;
+    grid-template-columns:repeat(1, 1fr);
+    align-items: end;
     grid-template-areas: 
         ". . card-footer-nav"
     ;
-    /* border: solid 2px red; */
     height: fit-content;
 }
 
 .card-footer-nav {
     grid-area: card-footer-nav;
     display: grid;
-    align-content: center;
+    width: 100%;
     grid-template-columns: repeat(3, 15px);
     gap: 10px;
 }
 
 .card-footer-nav img{
     width: 1.2em;
-    /* height: 10px; */
 }
 
 .card-footer-nav li {
     list-style: none;
 }
 
+/* ---MAIN SIDEBAR--- */
 .main-sidebar {
     grid-area: main-sidebar;
     display: grid;
@@ -318,24 +301,20 @@ body, html {
         "trending-header"
         "trending-card"
     ;
-    /* margin: 10px; */
-    padding: 10px;
-    padding-left: 0;
-
+    min-width: 210px;
 }
 
+/* ---ANNOUNCEMENTS--- */
 .announcements-header {
     grid-area: announcements-header;
-    color: white;
+    color: mintcream;
 }
 
 .announcements-card {
     grid-area: announcements-card;
     display: grid;
-    background-color: whitesmoke;
+    background-color: mintcream;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px 0px mintcream;
-    
     justify-items: center;
     padding: 10px;
     height: fit-content;
@@ -344,17 +323,10 @@ body, html {
 .announcements {
     display: grid;
     border-bottom: solid 1px hotpink;
-    /* text-align: center; */
-    /* justify-items: center; */
     align-content: center;
-    /* word-wrap: normal; */
-    /* padding: 10px; */
     width: 90%;
     padding-top: 1em;
     padding-bottom: 1em;
-    /* line-height: 1.2em; */
-    
-    /* height: max-content; */
 }
 
 .announcements-title, .trending-title {
@@ -367,10 +339,10 @@ body, html {
     border: none;
 }
 
+/* ---TRENDING--- */
 .trending-header {
     grid-area: trending-header;
-    color: white;
-
+    color: mintcream;
 }
 
 .trending-card {
@@ -378,13 +350,11 @@ body, html {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
-    background-color: whitesmoke;
-    box-shadow: 2px 2px 10px 0px mintcream;
+    background-color: mintcream;
     border-radius: 10px;
     justify-items: center;
     padding: 10px;
     height: fit-content;
-
 }
 
 .trending-card img {
