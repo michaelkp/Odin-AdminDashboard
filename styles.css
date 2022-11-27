@@ -6,10 +6,13 @@
 
 body, html {
     background-color: midnightblue;
+    /* line-height: 1.2em; */
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
 }
 
 .container {
-    height: 100vh;
+    /* height: 100vh; */
     display: grid;
     grid-template: repeat(1, minmax(75px, 15%)) repeat(3, 1fr)/ repeat(1, 210px) repeat(3, 1fr);
     grid-template-areas: 
@@ -20,12 +23,16 @@ body, html {
     ;
     min-width: 875px;
     max-width: 100vw;
+    position: relative;
+    height: 100%;
 }
 
 .header {
     grid-area: header;
     /* border: solid 2px white; */
     background-color: mintcream;
+    box-shadow: 0px 2px 10px 0px mintcream;
+
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 1fr 1fr 1fr;
@@ -115,6 +122,7 @@ body, html {
 }
 
 .nav-header li {
+    list-style: none;
     color: whitesmoke;
     background-color: midnightblue;
     border-radius: 10px;
@@ -141,13 +149,21 @@ body, html {
 .sidebar {
     grid-area: sidebar;
     /* border: solid 2px white; */
-    background-color: whitesmoke;
+    background-color: midnightblue;
+    color: white;
+    /* background-image: linear-gradient(to top, hotpink, mintcream); */
+    box-shadow: 2px 0px 10px 0px mintcream;
     display: grid;
     grid-template-rows: 100px 200px 100px;
     gap: 2em;
     justify-content: center;
     height: 100%;
 }
+
+/* svg.sidebar-icon path {
+    fill: white;
+} */
+
 
 .logo {
     display: grid;
@@ -193,7 +209,7 @@ body, html {
     /* justify-content: center; */
     /* align-content: center; */
     padding: 10px;
-    /* overflow: auto; */
+    overflow: auto;
     font-size: small;
 
 }
@@ -204,7 +220,7 @@ body, html {
     display: grid;
     /* grid-template-rows: repeat(1, 2%) repeat(3, 1fr);
     grid-template-columns: 1fr 1fr; */
-    grid-template: repeat(1, 2%) / repeat(2, minmax(210px, 1fr));
+    grid-template: repeat(1, 2em) repeat(3, 150px)/ repeat(2, minmax(210px, 1fr));
     /* grid-template-areas: 
         "card-container-header card-container-header"
         "main-card main-card"
@@ -229,8 +245,11 @@ body, html {
 .main-card {
     /* grid-area: main-card; */
     display: grid;
+    align-items: center;
     background-color: whitesmoke;
-    border: solid 2px red;
+    border-radius: 10px;
+    border-left: solid hotpink 10px;
+    box-shadow: 2px 2px 10px 0px mintcream;
     /* /* grid-template-rows: 1.5rem 5rem 1rem; */
     grid-template-areas: 
         "card-header"
@@ -246,14 +265,15 @@ body, html {
     grid-area: card-header;
     font-size: 1.2em;
     font-weight: 600;
-    text-align: left;
-    border: solid 2px red;
+    /* text-align: left; */
+    line-height: 0px;
+    /* border: solid 2px red; */
 
 }
 
 .card-text {
     grid-area: card-text;
-    border: solid 2px red;
+    /* border: solid 2px red; */
     overflow: auto;
 
 }
@@ -262,11 +282,11 @@ body, html {
     grid-area: card-footer;
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
-    background-color: white;
+    justify-items: end;
     grid-template-areas: 
         ". . card-footer-nav"
     ;
-    border: solid 2px red;
+    /* border: solid 2px red; */
     height: fit-content;
 }
 
@@ -290,7 +310,7 @@ body, html {
 .main-sidebar {
     grid-area: main-sidebar;
     display: grid;
-    grid-template-rows: 2% 1fr 2% 1fr;
+    grid-template-rows: 2em 1fr 2em 1fr;
     gap: 10px;
     grid-template-areas: 
         "announcements-header"
@@ -313,16 +333,38 @@ body, html {
     grid-area: announcements-card;
     display: grid;
     background-color: whitesmoke;
-    border: solid 2px red;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 0px mintcream;
     
-    /* padding: 10px; */
+    justify-items: center;
+    padding: 10px;
+    height: fit-content;
 }
 
 .announcements {
-    display: block;
-    text-align: center;
-    word-wrap: normal;
-    padding: 10px;
+    display: grid;
+    border-bottom: solid 1px hotpink;
+    /* text-align: center; */
+    /* justify-items: center; */
+    align-content: center;
+    /* word-wrap: normal; */
+    /* padding: 10px; */
+    width: 90%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* line-height: 1.2em; */
+    
+    /* height: max-content; */
+}
+
+.announcements-title, .trending-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    
+}
+
+.announcements:nth-last-child(-n + 1), .trending:nth-last-child(-n + 1) {
+    border: none;
 }
 
 .trending-header {
@@ -334,9 +376,36 @@ body, html {
 .trending-card {
     grid-area: trending-card;
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
     background-color: whitesmoke;
-    border: solid 2px red;
-    
+    box-shadow: 2px 2px 10px 0px mintcream;
+    border-radius: 10px;
+    justify-items: center;
     padding: 10px;
+    height: fit-content;
+
 }
+
+.trending-card img {
+    width: 2em;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.trending {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    align-content: center;
+    align-items: center;
+    gap: 1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 90%;
+    border-bottom: solid 1px hotpink;
+}
+
+
 

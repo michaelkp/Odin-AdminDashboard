@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- end fonts -->
     <link rel="stylesheet" href="styles.css">
     <title>Admin</title>
 </head>
@@ -91,7 +96,7 @@
         <main class="main-container">
 
             <section class="card-container">
-                <header class="card-container-header">Your Projects</header>
+                <header class="card-container-header"><h2>Your Projects</h2></header>
                 <div class="main-card">
                     <header class="card-header">Card1</header>
 
@@ -245,18 +250,52 @@
             </section>
             <aside class="main-sidebar">
 
-                <header class="announcements-header">Announcements</header>
+                <header class="announcements-header"><h2>Announcements</h2></header>
                 <section class="announcements-card">
-                    <div class="announcements">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quas.</div>
-                    <div class="announcements">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, cum!</div>
-                    <div class="announcements">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, quod!</div>
+                    <div class="announcements">
+                        <p class="announcements-title">Site Maintenance</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quas.</p>
+                    </div>
+                    <div class="announcements">
+                        <p class="announcements-title">Community Share day</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, cum!</p>
+                    </div>
+                    <div class="announcements">
+                        <p class="announcements-title">Updated Privacy Policy</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, quod!</p>
+                    </div>
                 </section>
 
                 <header class="trending-header">Trending</header>
                 <section class="trending-card">
-                    <div class="trending">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, libero!</div>
-                    <div class="trending">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, perferendis.</div>
-                    <div class="trending">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, id.</div>
+                    <div class="trending">
+                        <img src="img/icons/icons-user/penguin-g5ab44a0e5_640.png" alt="User Avatar">
+                        <div>
+                            <p class="trending-title">@tegan</p>
+                            <p>World Peace Builder</p>
+                        </div>
+                    </div>
+                    <div class="trending">
+                        <img src="img/icons/icons-user/sloth-ga7b9777f5_640.png" alt="User Avatar">
+                        <div>
+                            <p class="trending-title">@morgan</p>
+                            <p>Super Cool Project</p>
+                        </div>
+                    </div>
+                    <div class="trending">
+                        <img src="img/icons/icons-user/pirate-g0cccb5a65_640.png" alt="User Avatar">
+                        <div>
+                            <p class="trending-title">@kendall</p>
+                            <p>Life Changing App</p>
+                        </div>
+                    </div>
+                    <div class="trending">
+                        <img src="img/icons/icons-user/santa-claus-g818294f7b_640.png" alt="User Avatar">
+                        <div>
+                            <p class="trending-title">@alex</p>
+                            <p>No Traffic Maker</p>
+                        </div>
+                    </div>
                 </section>
 
             </aside>
